@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+    /* font-family: 'Bruno Ace SC', cursive; */
+    font-family: 'Noto Sans', sans-serif;
+}
+.jm_container{
+    @apply w-[1240px] max-w-[96%] mx-auto
+}
+.animation{
+    animation: spin 0.5s linear infinite;
+}
+@keyframes spin{
+    0%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
