@@ -7,7 +7,9 @@ const App = () => {
   return (
     <div className="jm_container">
       <Header></Header>
+      <div className="min-h-[80vh]">
         <Outlet />
+      </div>
       <Footer></Footer>
     </div>
   );
