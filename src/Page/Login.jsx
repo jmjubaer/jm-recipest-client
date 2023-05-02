@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Glogo from '../assets/google.png'
 import Gitlogo from '../assets/git-hub.png'
 import { Link } from "react-router-dom";
+import { FaEyeSlash,FaEye } from "react-icons/fa";
+
+
 const Login = () => {
+  const [show,setShow] = useState(false);
   return (
     <div className="min-h-screen my-5 flex items-center justify-center">
         <div className="w-1/2 border-2 rounded-lg p-10">
@@ -11,7 +15,14 @@ const Login = () => {
                 <label className="block mt-5 text-xl" htmlFor="email">Email</label>
                 <input className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Email" type="email" name="email" id="email" />
                 <label className="block mt-5 text-xl" htmlFor="password">Password</label>
-                <input className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Password" type="password" name="password" id="password" />
+                <div className="relative">
+                    <input className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Password" type={show ? "text" : "password"} name="password" id="password" />
+                    <span className='absolute text-2xl bottom-3 right-2 cursor-pointer' onClick={()=> setShow(!show)}>
+                    {
+                        show ? <FaEyeSlash /> : <FaEye/>
+                    }
+                        </span>
+                </div>
                 <input className="btn w-full btn_gradient mt-8" type="submit" value="Login" />
             </form>
 
@@ -37,7 +48,7 @@ const Login = () => {
                 <span className="leading-normal col-span-2 text-center">Don't have any Account ?</span>
                 <div className="w-full h-px bg-gray-400"></div>
             </div>
-            <Link><button className="btn mx-auto block w-1/2 rounded-3xl btn_gradient">Sign Up</button></Link>
+            <Link to="/register"><button className="btn mx-auto block w-1/2 rounded-3xl btn_gradient">Sign Up</button></Link>
         </div>
     </div>
   );
