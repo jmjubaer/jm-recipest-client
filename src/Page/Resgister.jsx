@@ -14,18 +14,18 @@ const Resgister = () => {
             <h2 className="text-3xl text-center my-5">Create your account</h2>
             <form className="">
                 <label className="block mt-5 text-xl" htmlFor="name">Name</label>
-                <input className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Name" type="name" name="name" id="name" />
+                <input required className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Name" type="name" name="name" id="name" />
 
                 <label className="block mt-5 text-xl" htmlFor="photoUrl">PhotoURL</label>
-                <input className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your PhotoUrl" type="text" name="photoUrl" id="photoUrl" />
+                <input required className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your PhotoUrl" type="text" name="photoUrl" id="photoUrl" />
                 
 
                 <label className="block mt-5 text-xl" htmlFor="email">Email</label>
-                <input className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Email" type="email" name="email" id="email" />
+                <input required className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Email" type="email" name="email" id="email" />
                 
                 <label className="block mt-5 text-xl" htmlFor="password">Password</label>
                 <div className="relative">
-                    <input className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Password" type={show ? "text" : "password"} name="password" id="password" />
+                    <input required className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Password" type={show ? "text" : "password"} name="password" id="password" />
                     <span className='absolute text-2xl bottom-3 right-2 cursor-pointer' onClick={()=> setShow(!show)}>
                     {
                         show ? <FaEyeSlash /> : <FaEye/>
