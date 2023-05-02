@@ -7,11 +7,13 @@ import Home from "./Page/Home";
 import Login from "./Page/Login";
 import Resgister from "./Page/Resgister";
 import Recipes from "./Page/Recipes";
+import NotFound from "./Page/Shared/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: "/",
