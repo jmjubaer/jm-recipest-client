@@ -1,9 +1,10 @@
 import React from "react";
 import { FaHeart, FaStopwatch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ChefCard = ({ chefInfo }) => {
   console.log(chefInfo);
-  const {chefName,chefPicture,likes,numberOfRecipes,yearsOfExperience  } = chefInfo;
+  const {chefName,chefPicture,likes,numberOfRecipes,yearsOfExperience,id  } = chefInfo;
   return (
     <div className="card border border-amber-500 bg-base-100 shadow-xl overflow-hidden">
         <figure className="p-10">
@@ -22,7 +23,9 @@ const ChefCard = ({ chefInfo }) => {
             </div>
             <p className="text-lg">Recipe : {numberOfRecipes}</p>
             <div className="card-actions mt-10">
-                <button className="btn btn_gradient w-full">View Recipes</button>
+                <Link to={`/recipes/${id}`} className="block w-full">
+                    <button className="btn btn_gradient w-full">View Recipes</button>
+                </Link>
             </div>
             </div>
         </div>
