@@ -34,3 +34,6 @@
 .btn_gradient{
     @apply bg-gradient-to-l from-amber-500 to-amber-300 border-0
 }
+.center{
+    
+}
