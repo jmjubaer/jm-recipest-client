@@ -10,11 +10,13 @@ const Navigation = () => {
                 <span className='font-serif text-5xl text-amber-500'>t</span></Link></h1>
 
                 <div className={`jm_nav ${open ? "w-4/5 md:w-1/2 p-5" : "w-0"}`}>
-                    <ul className='flex flex-col lg:flex-row gap-3 lg:gap-x-7'>
+                    <ul className='flex flex-col lg:flex-row gap-y-3'>
                         <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : "normal" }>Home</NavLink></li>
                         <li><NavLink className={({ isActive }) => isActive ? "active" : "normal" } to="/blogs">Blog</NavLink></li>
                     </ul>
-                    <button className= 'btn bg-amber-500 border-none px-5 mt-10 lg:mt-0'>login</button>
+                    <Link to="/login">
+                        <button className= 'btn bg-amber-500 border-none px-5 mt-10 lg:mt-0'>login</button>
+                    </Link>
                 </div>
                 <button onClick={() => setOpen(!open)} className='block lg:hidden'><FaBars className='mr-2 text-4xl' /></button>
             </nav>
