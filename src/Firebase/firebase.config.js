@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD-1G6HF7AJGXV_aDq6A5mJV0KHcmgIuTU",
-  authDomain: "jm-recipes.firebaseapp.com",
-  projectId: "jm-recipes",
-  storageBucket: "jm-recipes.appspot.com",
-  messagingSenderId: "425048222417",
-  appId: "1:425048222417:web:ae8632685de76e131533f0"
+  apiKey: "AIzaSyCB1J-r2lcO9anXrzdkdb_3hY_uIHFrj74",
+  authDomain: "jm-recipest.firebaseapp.com",
+  projectId: "jm-recipest",
+  storageBucket: "jm-recipest.appspot.com",
+  messagingSenderId: "891756402521",
+  appId: "1:891756402521:web:9941ae56bda51a93d71e48"
 };
 
 // Initialize Firebase

@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Glogo from '../assets/google.png'
 import Gitlogo from '../assets/git-hub.png'
 import { Link } from "react-router-dom";
 import { FaEyeSlash,FaEye } from "react-icons/fa";
+import { AuthContest } from "../Provider/AuthProvider";
 
 
 const Login = () => {
-  const [show,setShow] = useState(false);
+    const [show,setShow] = useState(false);
+    const {signIn} = useContext(AuthContest);
+    const handleSign = (event) => {
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        signIn(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
   return (
     <div className="min-h-screen my-5 flex items-center justify-center">
         <div className="w-1/2 border-2 rounded-lg p-10">

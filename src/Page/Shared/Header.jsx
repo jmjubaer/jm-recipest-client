@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
+import { AuthContest } from '../../Provider/AuthProvider';
 
 const Header = () => {
     const [open, setOpen] = useState(false);
+    const {user,logout} = useContext(AuthContest);
     return (
         <div className='bg-gradient-to-t from-amber-400  p-4 rounded-b-3xl'>
             <nav className='flex lg:grid lg:grid-cols-5 justify-between jm_container items-center'>
@@ -15,9 +17,19 @@ const Header = () => {
                         <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : "normal" }>Home</NavLink></li>
                         <li><NavLink className={({ isActive }) => isActive ? "active" : "normal" } to="/blogs">Blog</NavLink></li>
                     </ul>
-                    <Link to="/login">
-                        <button className= 'btn bg-amber-500 border-none px-5 mt-10 lg:mt-0'>login</button>
-                    </Link>
+                    <div className="">
+                        {
+                            user ?
+                                <div className='flex gap-5'>
+                                <img className='w-12 h-12 rounded-full' title={user?.displayName} src={user?.photoURL} alt="" />
+                                <button onClick={logout} className= 'btn bg-amber-500 border-none px-5 mt-10 lg:mt-0'>Log Out</button>
+                                </div>
+                                 :
+                                <Link to="/login">
+                                    <button className= 'btn bg-amber-500 border-none px-5 mt-10 lg:mt-0'>Login</button>
+                                </Link>
+                        }
+                    </div>
                 </div>
                 <button onClick={() => setOpen(!open)} className='block lg:hidden'><FaBars className='mr-2 text-4xl' /></button>
             </nav>
