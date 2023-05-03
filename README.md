@@ -1,12 +1,14 @@
-# JM job Portal
+# JM Recipest
 
-## This is job hunting site
+## This is japanese food website that caries recipes ans chef information
 
 ## Features :
 
 - At top has simple navigation that allows to navigate page.
-- In Home page has some jobs information like job category and job featured
-- In job featured section has some job details. It also contain a details button. When we click details button it show more information this job in job details page.
-- In job details page we can show job requirements, job oppertunity and contact information. In this page we can apply this job. If apply the job it show tost for confermanation. we can apply a job one time if we try to apply multiple time it give warning tost.
-- This site also has Statistics page that show a Area Chart for previous assignments marks.
+- At first in HomePage has a wellcome banner
+- In homepage also has chef information and popular recipes
+- When hover the chef image it show some information about the chef and a view recipe button
+- When Click view recipe button it go to the recipe page. This page contains this chef information and his some recipe information (Like the recipe cooking method,  recipe rating and Ingredients). There also has a favorite button.
+- You can not show the recipe information unless you login this site
+- This site also has a newsletter service    
 - This site also contains a blog page that carries Some react concept.
