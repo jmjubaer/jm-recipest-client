@@ -16,7 +16,7 @@ const FoodGallery = () => {
                 <p>Browse through our most popular recipes</p>
                 <div className="absolute w-28 h-1 bg-amber-500 left-1/2 -bottom-3 -translate-x-1/2"></div>
             </div>
-            <div className="grid grid-cols-4 gap-5 my-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 my-8">
                 {
                     foods.map((food,idx) => <FoodCard key={idx} food = {food}></FoodCard>)
                 }

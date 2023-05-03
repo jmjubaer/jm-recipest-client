@@ -14,7 +14,7 @@ const RecipeCard = ({ recipe }) => {
     toast("Recipe add your favorite!")
   }
   return (
-      <div className="card card-compact border relative shadow-xl">
+      <div className="card mt-10 md:mt-0 card-compact border relative shadow-xl">
           <figure><img className="rounded-md m-5" src={image} alt="Shoes" /></figure>
           <div className="card-body block">
             <h2 className="text-center text-3xl my-3">{recipeName}</h2>
@@ -34,7 +34,7 @@ const RecipeCard = ({ recipe }) => {
                 />
                 <span className="text-xl">({rating})</span>
             </div>
-            <button onClick={handleFavorite} disabled={favorite} className="absolute top-5 right-5">
+            <button onClick={handleFavorite} disabled={favorite} className="absolute top-3 right-3">
               {
                 favorite ? <FaHeart className={`text-4xl text-red-600 opacity-50 cursor-not-allowed` } /> : <FaRegHeart className={`text-4xl text-red-600` } />
               }

@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-gradient-to-b p-5 py-8 rounded-t-3xl  from-amber-400">
-        <div className="grid grid-cols-4 gap-10 py-5 border-b-2 border-amber-500">
-            <p className="text-4xl self-center ">
+    <div className="bg-gradient-to-b p-5 py-8 rounded-t-3xl from-amber-400">
+        <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-10 py-5 border-b-2 border-amber-500">
+            <p className="text-2xl sm:text-4xl self-center md:col-span-3 xl:col-span-1">
                 <Link to="/">
-                <span className="font-serif text-5xl text-amber-500 ">JM</span>_
-                <span className="font-serif text-5xl text-amber-500">R</span>esipes
-                <span className="font-serif text-5xl text-amber-500">t</span>
+                <span className="font-serif text-4xl sm:text-5xl text-amber-500 ">JM</span>_
+                <span className="font-serif text-4xl sm:text-5xl text-amber-500">R</span>esipes
+                <span className="font-serif text-4xl sm:text-5xl text-amber-500">t</span>
                 </Link>
             </p>
-            <div className="">
+            <div className="md:col-span-1 xl:col-span-1">
                 <h3 className="text-2xl font-bold mb-4">About us</h3>
                 <p>Browse our extensive collection of recipes that includes thousands of recipes for cookies, cakes, breads, rolls and main dishes.</p>
             </div>

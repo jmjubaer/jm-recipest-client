@@ -20,19 +20,18 @@ const Recipes = () => {
     short_des,
     yearsOfExperience,
   } = chefData;
-  // console.log(recipes);
   return (
     <div>
       <div className="">
-        <div className="card card-side items-center bg-amber-500 bg-opacity-50 my-8 border shadow-xl">
+        <div className="card md:card-side items-center bg-amber-500 bg-opacity-50 my-8 border shadow-xl">
           <figure>
             <img
               className="rounded-full shadow-md m-5"
               src={chefPicture}
-              alt="Movie"
+              alt="chef image"
             />
           </figure>
-          <div className="card-body">
+          <div className="card-body p-5 sm:p-8">
             <h2 className="card-title text-2xl">{chefName}</h2>
             <p>{short_des}</p>
             <span>
@@ -47,7 +46,7 @@ const Recipes = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-10 my-10">
+      <div className="grid md:grid-cols-2 md:gap-5 lg:gap-10 my-10">
         {recipes.map((recipe, idx) => (
           <RecipeCard key={idx} recipe={recipe}></RecipeCard>
         ))}
