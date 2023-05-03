@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate  } from 'react-router-dom';
 import Glogo from '../assets/google.png'
 import Gitlogo from '../assets/git-hub.png'
 import { FaEyeSlash,FaEye } from "react-icons/fa";
@@ -7,6 +7,9 @@ import { AuthContest } from '../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Resgister = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from || "/";
     const [show,setShow] = useState(false);
     const [passErr,setPassErr] = useState("");
     const {createUser,googleSignIn,githubSignIn} = useContext(AuthContest);
@@ -29,11 +32,16 @@ const Resgister = () => {
                 displayName: name,
                 photoURL: photo
             })
+            navigate(from)
             event.target.reset();
         })
         .catch(err => {
             console.log(err.message);
         })
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
     }
 
     return (
@@ -71,7 +79,7 @@ const Resgister = () => {
             </div>
 
             <div className="text-white">
-                <button onClick={googleSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center">
+                <button onClick={handleGoogleSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center">
                    <div className="p-2 rounded-full bg-white"> <img src={Glogo} className="w-8 h-8 rounded-full inline-block" alt="" /> </div>
                     <span className="flex-grow">Continue With Google</span>
                 </button>

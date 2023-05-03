@@ -13,7 +13,7 @@ const Recipes = () => {
         .then(data => setChefData(data))
     },[])
     const {chefName,chefPicture,likes,numberOfRecipes,short_des,yearsOfExperience} = chefData;
-    console.log(recipes);
+    // console.log(recipes);
     return (
         <div>
             <div className="">

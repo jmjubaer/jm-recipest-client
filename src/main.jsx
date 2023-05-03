@@ -10,6 +10,7 @@ import Recipes from "./Page/Recipes";
 import NotFound from "./Page/Shared/NotFound";
 import Blogs from "./Page/Blogs";
 import AuthProvider from "./Provider/AuthProvider";
+import PrivetRoutes from "./Page/PrivetRoutes";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipes/:id",
-        element: <Recipes/>,
+        element: <PrivetRoutes><Recipes/></PrivetRoutes>,
         loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
       },
       {

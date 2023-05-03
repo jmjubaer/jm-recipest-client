@@ -1,15 +1,19 @@
 import React, { useContext, useState } from "react";
 import Glogo from '../assets/google.png'
 import Gitlogo from '../assets/git-hub.png'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEyeSlash,FaEye } from "react-icons/fa";
 import { AuthContest } from "../Provider/AuthProvider";
 
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || "/";
     const [show,setShow] = useState(false);
     const [err, setErr] = useState("");
     const {signIn,googleSignIn,githubSignIn} = useContext(AuthContest);
+
     const handleSign = (event) => {
         event.preventDefault();
         setErr("");
@@ -19,11 +23,23 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             event.target.reset();
+            navigate(from)
         })
         .catch(err => {
             setErr(err.message)
             console.log(err);
         })
+    }
+    const handlegoogleSignIn = () => {
+        googleSignIn()
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+        
     }
   return (
     <div className="min-h-screen my-5 flex items-center justify-center">
@@ -52,7 +68,7 @@ const Login = () => {
             </div>
 
             <div className="text-white">
-                <button onClick={googleSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center">
+                <button onClick={handlegoogleSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center">
                    <div className="p-2 rounded-full bg-white"> <img src={Glogo} className="w-8 h-8 rounded-full inline-block" alt="" /> </div>
                     <span className="flex-grow">Continue With Google</span>
                 </button>
@@ -67,7 +83,7 @@ const Login = () => {
                 <span className="leading-normal col-span-2 text-center">Don't have any Account ?</span>
                 <div className="w-full h-px bg-gray-400"></div>
             </div>
-            <Link to="/register"><button className="btn mx-auto block w-1/2 rounded-3xl btn_gradient">Sign Up</button></Link>
+            <Link to="/register" state={{from:from}}><button className="btn mx-auto block w-1/2 rounded-3xl btn_gradient">Sign Up</button></Link>
         </div>
     </div>
   );

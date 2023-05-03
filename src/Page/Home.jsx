@@ -5,7 +5,7 @@ import ChefSection from './ChefSection';
 
 const Home = () => {
     const chefData = useLoaderData();
-    console.log(chefData);
+    // console.log(chefData);
     return (
         <div>
             <Bannerr></Bannerr>

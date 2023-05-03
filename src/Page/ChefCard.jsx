@@ -3,7 +3,7 @@ import { FaHeart, FaStopwatch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const ChefCard = ({ chefInfo }) => {
-  console.log(chefInfo);
+//   console.log(chefInfo);
   const {chefName,chefPicture,likes,numberOfRecipes,yearsOfExperience,id  } = chefInfo;
   return (
     <div className="card border border-amber-500 bg-base-100 shadow-xl overflow-hidden">
