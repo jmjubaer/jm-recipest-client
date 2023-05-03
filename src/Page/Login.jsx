@@ -8,16 +8,20 @@ import { AuthContest } from "../Provider/AuthProvider";
 
 const Login = () => {
     const [show,setShow] = useState(false);
-    const {signIn} = useContext(AuthContest);
+    const [err, setErr] = useState("");
+    const {signIn,googleSignIn,githubSignIn} = useContext(AuthContest);
     const handleSign = (event) => {
+        event.preventDefault();
+        setErr("");
         const email = event.target.email.value;
         const password = event.target.password.value;
         signIn(email, password)
         .then(result => {
             const user = result.user;
-            console.log(user);
+            event.target.reset();
         })
         .catch(err => {
+            setErr(err.message)
             console.log(err);
         })
     }
@@ -25,7 +29,7 @@ const Login = () => {
     <div className="min-h-screen my-5 flex items-center justify-center">
         <div className="w-1/2 border-2 rounded-lg p-10">
             <h2 className="text-3xl text-center my-5">Login your account</h2>
-            <form className="">
+            <form onSubmit={handleSign}>
                 <label className="block mt-5 text-xl" htmlFor="email">Email</label>
                 <input required className="block border-b-2 outline-0 py-3 w-full" placeholder="Enter your Email" type="email" name="email" id="email" />
                 <label className="block mt-5 text-xl" htmlFor="password">Password</label>
@@ -37,6 +41,7 @@ const Login = () => {
                     }
                         </span>
                 </div>
+                <span className="text-red-500">{err}</span>
                 <input className="btn w-full btn_gradient mt-8" type="submit" value="Login" />
             </form>
 
@@ -47,11 +52,11 @@ const Login = () => {
             </div>
 
             <div className="text-white">
-                <button className="border rounded-3xl w-full bg-blue-600 flex items-center">
+                <button onClick={googleSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center">
                    <div className="p-2 rounded-full bg-white"> <img src={Glogo} className="w-8 h-8 rounded-full inline-block" alt="" /> </div>
-                    <span className="flex-grow">Continue With Github</span>
+                    <span className="flex-grow">Continue With Google</span>
                 </button>
-                <button className="border rounded-3xl w-full bg-blue-600 flex items-center mt-5">
+                <button onClick={githubSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center mt-5">
                    <div className="p-2 rounded-full bg-white"> <img src={Gitlogo} className="w-8 h-8 rounded-full inline-block" alt="" /> </div>
                     <span className="flex-grow">Continue With Github</span>
                 </button>

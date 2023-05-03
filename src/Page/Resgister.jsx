@@ -9,7 +9,7 @@ import { updateProfile } from 'firebase/auth';
 const Resgister = () => {
     const [show,setShow] = useState(false);
     const [passErr,setPassErr] = useState("");
-    const {createUser} = useContext(AuthContest);
+    const {createUser,googleSignIn,githubSignIn} = useContext(AuthContest);
 
     const handleCreateUser = event => {
         event.preventDefault();
@@ -29,12 +29,13 @@ const Resgister = () => {
                 displayName: name,
                 photoURL: photo
             })
-            console.log(user);
+            event.target.reset();
         })
         .catch(err => {
             console.log(err.message);
         })
     }
+
     return (
     <div className="min-h-screen my-5 flex items-center justify-center">
         <div className="w-1/2 border-2 rounded-lg p-10">
@@ -70,11 +71,11 @@ const Resgister = () => {
             </div>
 
             <div className="text-white">
-                <button className="border rounded-3xl w-full bg-blue-600 flex items-center">
+                <button onClick={googleSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center">
                    <div className="p-2 rounded-full bg-white"> <img src={Glogo} className="w-8 h-8 rounded-full inline-block" alt="" /> </div>
-                    <span className="flex-grow">Continue With Github</span>
+                    <span className="flex-grow">Continue With Google</span>
                 </button>
-                <button className="border rounded-3xl w-full bg-blue-600 flex items-center mt-5">
+                <button onClick={githubSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center mt-5">
                    <div className="p-2 rounded-full bg-white"> <img src={Gitlogo} className="w-8 h-8 rounded-full inline-block" alt="" /> </div>
                     <span className="flex-grow">Continue With Github</span>
                 </button>
