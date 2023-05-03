@@ -1,12 +1,18 @@
 import React from 'react';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const FoodCard = ({food}) => {
     const {cookingMethod,image,rating,recipeName} = food;
     return (
         <div className="card bg-base-100 shadow-xl border">
-            <figure><img src={image} className='w-full h-56 object-cover' alt="Shoes" /></figure>
+            <LazyLoadImage
+            className='h-56 w-full object-cover'
+            src={image}
+            effect='blur'
+            />
             <div className="card-body">
                 <h2 className="card-title">{recipeName}</h2>
                 <p>Cooking Method : {cookingMethod}</p>

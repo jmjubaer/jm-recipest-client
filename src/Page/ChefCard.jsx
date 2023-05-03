@@ -1,5 +1,7 @@
 import React from "react";
 import { FaHeart, FaStopwatch } from "react-icons/fa";
+import LazyLoad from "react-lazy-load";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const ChefCard = ({ chefInfo }) => {
@@ -8,10 +10,10 @@ const ChefCard = ({ chefInfo }) => {
   return (
     <div className="card border border-amber-500 bg-base-100 shadow-xl overflow-hidden">
         <figure className="p-10">
-            <img
+            <LazyLoadImage
             src={chefPicture}
-            alt="Shoes"
             className="rounded-xl"
+            effect="blur"
             />
         </figure>
         <div className="card-body absolute top-0 left-0 items-center justify-center w-full h-full bg-amber-600 bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity ">

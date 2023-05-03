@@ -38,3 +38,6 @@
     background: linear-gradient(rgba(0, 0, 0, 0.40),rgba(0, 0, 0, 0.40)), url('./assets/image_2.jpg') no-repeat ;
     background-size: cover;
 }
+.jm_Shadow {
+    box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.25); 
+}
