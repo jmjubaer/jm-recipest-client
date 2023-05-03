@@ -34,3 +34,7 @@
 .btn_gradient{
     @apply bg-gradient-to-l from-amber-500 to-amber-300 border-0
 }
+.bg-image{
+    background: linear-gradient(rgba(0, 0, 0, 0.40),rgba(0, 0, 0, 0.40)), url('./assets/image_2.jpg') no-repeat ;
+    background-size: cover;
+}

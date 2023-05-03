@@ -3,6 +3,7 @@ import Bannerr from './Bannerr';
 import { useLoaderData } from 'react-router-dom';
 import ChefSection from './ChefSection';
 import FoodGallery from './FoodGallery';
+import NewsLetter from './NewsLetter';
 
 const Home = () => {
     const chefData = useLoaderData();
@@ -12,6 +13,7 @@ const Home = () => {
             <Bannerr></Bannerr>
             <ChefSection chefData={chefData}></ChefSection>
             <FoodGallery></FoodGallery>
+            <NewsLetter></NewsLetter>
         </div>
     );
 };
