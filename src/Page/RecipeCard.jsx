@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import Rating from "react-rating";
 import { FaHeart, FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 
 const RecipeCard = ({ recipe }) => {
   const { cookingMethod, image, ingredients, rating, recipeName } = recipe;
@@ -23,15 +25,14 @@ const RecipeCard = ({ recipe }) => {
                 ingredients.map((ingredient,idx) => <li className="text-lg" key={idx}>{ingredient}</li>)
               }
             </div>
-            <div className="my-3">
+            <div className="my-3 flex items-center gap-2">
               <span className="font-bold text-2xl">Rating: </span>
-            <Rating
-                readonly
-                placeholderRating={rating}
-                emptySymbol={<FaRegStar className="text-yellow-400 text-lg"/>}
-                placeholderSymbol={<FaStar className="text-yellow-400 text-lg"/>}
-                fullSymbol={<FaStar className="text-yellow-40 text-lg"/>}
-              />
+              <Rating
+                  style={{ maxWidth: 150 }}
+                  value={rating}
+                  readOnly
+                />
+                <span className="text-xl">({rating})</span>
             </div>
             <button onClick={handleFavorite} disabled={favorite} className="absolute top-5 right-5">
               {

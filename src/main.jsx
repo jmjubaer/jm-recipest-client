@@ -21,12 +21,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/chefs')
+        loader: () =>
+          fetch("https://asignment-10-server-jmjubaer.vercel.app/chefs"),
       },
       {
         path: "/recipes/:id",
-        element: <PrivetRoutes><Recipes/></PrivetRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
+        element: <PrivetRoutes><Recipes /></PrivetRoutes>,
+        loader: ({ params }) =>
+          fetch(
+            `https://asignment-10-server-jmjubaer.vercel.app/recipes/${params.id}`
+          ),
       },
       {
         path: "/blogs",

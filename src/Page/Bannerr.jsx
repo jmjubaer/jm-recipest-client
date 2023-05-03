@@ -44,7 +44,7 @@ const Bannerr = () => {
                         <h2 className='text-5xl my-5'>Search all of our Recipes Collection </h2>
                         <p>Find and share everyday cooking inspiration on Chefscuisine. Discover recipes, cooks, videos, and how-tos based on the food you love and the friends you follow.</p>
                         <div className="flex justify-center w-full my-5">
-                            <input className='p-3 outline-0 w-3/4 rounded-l-xl' type="search" placeholder='Search here' />
+                            <input className='p-3 text-black outline-0 w-3/4 rounded-l-xl' type="search" placeholder='Search here' />
                             <input className='p-3 rounded-r-xl cursor-pointer w-1/4 btn_gradient' type="button" value="Search" />
                         </div>
                     </div>

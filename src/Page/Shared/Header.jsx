@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import { AuthContest } from '../../Provider/AuthProvider';
+import LoadingSpinner from './LoadingSpinner';
 
 const Header = () => {
     const [open, setOpen] = useState(false);
     const {user,logout} = useContext(AuthContest);
+
     return (
         <div className='bg-gradient-to-t from-amber-400  p-4 rounded-b-3xl'>
             <nav className='flex lg:grid lg:grid-cols-5 justify-between jm_container items-center'>

@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import { AuthContest } from '../Provider/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
+import LoadingSpinner from './Shared/LoadingSpinner';
 
 const PrivetRoutes = ({children}) => {
     const location = useLocation();
-    // console.log(location);
-    const {user} =  useContext(AuthContest);
+    const {user,loading} =  useContext(AuthContest);
+    if(loading){
+        return <LoadingSpinner></LoadingSpinner>
+    }
     if(user){
         return children
     }

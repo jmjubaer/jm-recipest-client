@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
-import Glogo from '../assets/google.png'
-import Gitlogo from '../assets/git-hub.png'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEyeSlash,FaEye } from "react-icons/fa";
 import { AuthContest } from "../Provider/AuthProvider";
+import SocialLogin from "./SocialLogin";
 
 
 const Login = () => {
@@ -29,17 +28,6 @@ const Login = () => {
             setErr(err.message)
             console.log(err);
         })
-    }
-    const handlegoogleSignIn = () => {
-        googleSignIn()
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(err => {
-            console.log(err);
-        })
-        
     }
   return (
     <div className="min-h-screen my-5 flex items-center justify-center">
@@ -68,14 +56,7 @@ const Login = () => {
             </div>
 
             <div className="text-white">
-                <button onClick={handlegoogleSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center">
-                   <div className="p-2 rounded-full bg-white"> <img src={Glogo} className="w-8 h-8 rounded-full inline-block" alt="" /> </div>
-                    <span className="flex-grow">Continue With Google</span>
-                </button>
-                <button onClick={githubSignIn} className="border rounded-3xl w-full bg-blue-600 flex items-center mt-5">
-                   <div className="p-2 rounded-full bg-white"> <img src={Gitlogo} className="w-8 h-8 rounded-full inline-block" alt="" /> </div>
-                    <span className="flex-grow">Continue With Github</span>
-                </button>
+                <SocialLogin from = {from}></SocialLogin>
             </div>
 
             <div className="grid grid-cols-4 items-center gap-5 my-8">
