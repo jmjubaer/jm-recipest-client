@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import Glogo from '../assets/google.png'
-import Gitlogo from '../assets/git-hub.png'
+import Glogo from '../../assets/google.png'
+import Gitlogo from '../../assets/git-hub.png'
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
-import app from '../Firebase/firebase.config';
 import { useNavigate } from 'react-router-dom';
+import app from '../../Firebase/firebase.config';
 
 const auth = getAuth(app);
 

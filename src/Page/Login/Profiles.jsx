@@ -1,21 +1,20 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../provider/UserContext";
 import { useNavigate } from "react-router-dom";
-import LoadingSpinner from "./LoadingSpinner";
+import { AuthContest } from "../../Provider/AuthProvider";
+import LoadingSpinner from "../Shared/LoadingSpinner";
 
 const Profiles = () => {
-  const { user,signOutUser,loading } = useContext(AuthContext);
-//   const { displayName, email, photoURL } = user;
+  const { user,logout,loading } = useContext(AuthContest);
 const navigate = useNavigate();
   const handleSignOut = () => {
-    signOutUser();
+    logout();
     navigate("/")
   }
   if(loading){
     return <LoadingSpinner/>
   }
 return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center my-10 btn_gradient w-fit mx-auto p-10 rounded-3xl">
         <div className="text-center">
             <img className="w-60 mx-auto h-60 rounded-full object-cover" src={user?.photoURL} alt="" />
             <h2 className="text-4xl my-10">Name: {user?.displayName}</h2>

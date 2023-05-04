@@ -1,11 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate  } from 'react-router-dom';
-import Glogo from '../assets/google.png'
-import Gitlogo from '../assets/git-hub.png'
+import { Link, useLocation, useNavigate  } from 'react-router-dom';
 import { FaEyeSlash,FaEye } from "react-icons/fa";
-import { AuthContest } from '../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import SocialLogin from './SocialLogin';
+import { AuthContest } from '../../Provider/AuthProvider';
 
 const Resgister = () => {
     const navigate = useNavigate();
@@ -65,6 +63,7 @@ const Resgister = () => {
                     }
                         </span>
                 </div>
+                <Link to="/reset" className="text-info">Forgotten Password ?</Link>
                 <span className='text-red-500'>{passErr}</span>
                 <input className="btn w-full btn_gradient mt-8" type="submit" value="Sign Up" />
             </form>

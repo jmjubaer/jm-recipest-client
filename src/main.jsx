@@ -4,8 +4,6 @@ import App from "./App";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./Page/Home";
-import Login from "./Page/Login";
-import Resgister from "./Page/Resgister";
 import Recipes from "./Page/Recipes";
 import NotFound from "./Page/Shared/NotFound";
 import Blogs from "./Page/Blogs";
@@ -13,6 +11,11 @@ import AuthProvider from "./Provider/AuthProvider";
 import PrivetRoutes from "./Page/PrivetRoutes";
 import { getStoredRecipes } from "./fakedb/function";
 import FavoriteRecipes from "./Page/FavoriteRecipes";
+import Login from "./Page/Login/Login";
+import Resgister from "./Page/Login/Resgister";
+import Profiles from "./Page/Login/Profiles";
+import ForgottenPass from "./Page/Login/ForgottenPass";
+
 
 const router = createBrowserRouter([
   {
@@ -43,8 +46,16 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
+        path: "/user",
+        element: <Profiles />,
+      },
+      {
         path: "/register",
         element: <Resgister />,
+      },
+      {
+        path: "/reset",
+        element: <ForgottenPass />,
       },
       {
         path: "/favorites",

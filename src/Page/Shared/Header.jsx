@@ -24,7 +24,7 @@ const Header = () => {
                         {
                             user ?
                                 <div className='lg:flex gap-5'>
-                                <img className='w-12 h-12 rounded-full mt-3 lg:mt-0' title={user?.displayName} src={user?.photoURL} alt="" />
+                                <Link to="/user"><img className='w-12 h-12 rounded-full mt-3 lg:mt-0' title={user?.displayName} src={user?.photoURL} alt="" /></Link>
                                 <button onClick={logout} className= 'btn bg-amber-500 border-none px-5 mt-5 lg:mt-0'>Log Out</button>
                                 </div>
                                  :

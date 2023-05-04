@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEyeSlash,FaEye } from "react-icons/fa";
-import { AuthContest } from "../Provider/AuthProvider";
 import SocialLogin from "./SocialLogin";
+import { AuthContest } from "../../Provider/AuthProvider";
 
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
     const from = location?.state?.from?.pathname || "/";
     const [show,setShow] = useState(false);
     const [err, setErr] = useState("");
-    const {signIn,googleSignIn,githubSignIn} = useContext(AuthContest);
+    const {signIn} = useContext(AuthContest);
 
     const handleSign = (event) => {
         event.preventDefault();
@@ -45,6 +45,7 @@ const Login = () => {
                     }
                         </span>
                 </div>
+                <Link to="/reset" className="text-info">Forgotten Password ?</Link>
                 <span className="text-red-500">{err}</span>
                 <input className="btn w-full btn_gradient mt-8" type="submit" value="Login" />
             </form>
