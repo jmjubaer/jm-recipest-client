@@ -18,6 +18,7 @@ const Header = () => {
                     <ul className='flex flex-col lg:flex-row gap-y-3'>
                         <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : "normal" }>Home</NavLink></li>
                         <li><NavLink className={({ isActive }) => isActive ? "active" : "normal" } to="/blogs">Blog</NavLink></li>
+                        <li><NavLink className={({ isActive }) => isActive ? "active" : "normal" } to="/favorites">Favorite Recipe</NavLink></li>
                     </ul>
                     <div className="">
                         {

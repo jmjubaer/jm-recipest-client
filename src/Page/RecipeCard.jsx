@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { FaHeart, FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
 
+import { addToCart } from "../fakedb/function";
+
 const RecipeCard = ({ recipe }) => {
   const { cookingMethod, image, ingredients, rating, recipeName } = recipe;
   const [favorite,setFavorite] = useState(false); 
   const handleFavorite = () => {
     setFavorite(true);
-    toast("Recipe add your favorite!")
+    toast("Recipe add your favorite!");
+    addToCart(recipe);
   }
+
   return (
       <div className="card mt-10 md:mt-0 card-compact border relative shadow-xl">
           <figure><img className="rounded-md m-5" src={image} alt="Shoes" /></figure>

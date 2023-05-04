@@ -11,6 +11,8 @@ import NotFound from "./Page/Shared/NotFound";
 import Blogs from "./Page/Blogs";
 import AuthProvider from "./Provider/AuthProvider";
 import PrivetRoutes from "./Page/PrivetRoutes";
+import { getStoredRecipes } from "./fakedb/function";
+import FavoriteRecipes from "./Page/FavoriteRecipes";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Resgister />,
+      },
+      {
+        path: "/favorites",
+        element: <FavoriteRecipes />,
+        loader: () => getStoredRecipes()
       },
     ],
   },
