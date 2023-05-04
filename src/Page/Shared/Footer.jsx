@@ -20,10 +20,9 @@ const Footer = () => {
             <div className="">
                 <h3 className="text-2xl font-bold mb-4">Quick Links</h3>
                 <ul>
-                    <li><Link className="hover:text-amber-600 block my-2">Home</Link></li>
-                    <li><Link className="hover:text-amber-600 block my-2">Blogs</Link></li>
-                    <li><Link className="hover:text-amber-600 block my-2">About us</Link></li>
-                    <li><Link className="hover:text-amber-600 block my-2">Something</Link></li>
+                    <li><Link to="/" className="hover:text-amber-600 block my-2">Home</Link></li>
+                    <li><Link to="/blogs" className="hover:text-amber-600 block my-2">Blogs</Link></li>
+                    <li><Link to="/favorites" className="hover:text-amber-600 block my-2">Favorite recipe</Link></li>
                 </ul>
             </div>
             <div className="">
