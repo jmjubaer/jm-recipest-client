@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import { AuthContest } from '../../Provider/AuthProvider';
-import LoadingSpinner from './LoadingSpinner';
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Header = () => {
     const [open, setOpen] = useState(false);
@@ -21,10 +22,17 @@ const Header = () => {
                         <li><NavLink className={({ isActive }) => isActive ? "active" : "normal" } to="/favorites">Favorite Recipe</NavLink></li>
                     </ul>
                     <div className="">
+                    <Tooltip id='my-tooltip' />
                         {
                             user ?
                                 <div className='lg:flex gap-5'>
-                                <Link to="/user"><img className='w-12 h-12 rounded-full mt-3 lg:mt-0' title={user?.displayName} src={user?.photoURL} alt="" /></Link>
+                                <Link
+                                  data-tooltip-id="my-tooltip" 
+                                  data-tooltip-content={user?.displayName} 
+                                  data-tooltip-place="top"
+                                 to="/user"><img
+                                  data-tooltip-id="my-tooltip" 
+                                className='w-12 h-12 rounded-full mt-3 lg:mt-0' src={user?.photoURL} alt="" /></Link>
                                 <button onClick={logout} className= 'btn bg-amber-500 border-none px-5 mt-5 lg:mt-0'>Log Out</button>
                                 </div>
                                  :
